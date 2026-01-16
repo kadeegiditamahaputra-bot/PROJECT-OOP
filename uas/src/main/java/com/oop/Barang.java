@@ -1,5 +1,7 @@
 package com.oop;
 
+
+
 public class Barang {
     // Atribut (fields)
     private String kode;
