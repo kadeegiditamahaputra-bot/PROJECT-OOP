@@ -1,7 +1,0 @@
-{
-  "java.project.referencedLibraries": [
-    "lib/**/*.jar",
-    "c:\\Users\\I Kade Egi Dita Mp\\OneDrive - Institut Teknologi dan Bisnis STIKOM Bali\\KAMPUS MATERI\\SEMESTER 3\\OOP\\Pertemuan 11\\DataCol_Json\\lib\\gson-2.10.1.jar",
-    "c:\\Users\\I Kade Egi Dita Mp\\OneDrive - Institut Teknologi dan Bisnis STIKOM Bali\\KAMPUS MATERI\\SEMESTER 3\\OOP\\Pertemuan 11\\DataCol_Json\\lib\\mysql-connector-j-9.5.0.jar"
-  ]
-}
