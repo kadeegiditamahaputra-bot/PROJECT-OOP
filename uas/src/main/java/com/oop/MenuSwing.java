@@ -1,6 +1,6 @@
 package com.oop;
-
 import javax.swing.*;
+
 
 public class MenuSwing extends JFrame implements Menuinterface {
     private final InterFace service = new Service();
@@ -12,7 +12,8 @@ public class MenuSwing extends JFrame implements Menuinterface {
 
         // Buat menu bar
         JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("Pilihan");
+        JMenu menu = new JMenu("MENU");
+        menu.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, java.awt.Color.BLACK));
 
         // Input Barang
         JMenuItem inputItem = new JMenuItem("Input Barang");
