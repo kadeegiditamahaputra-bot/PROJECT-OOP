@@ -7,9 +7,8 @@ import javax.swing.JOptionPane;
 
 
 
-public class Service implements InterFace {
+public class Service {
 
-    @Override
     public void inputBarang(String kode, String nama, int jumlah, double harga) {
         String sql = "insert into barang (kode, nama, jumlah, harga) values (?, ?, ?, ?)";
         try (Connection conn = Koneksi.getKoneksi();
@@ -28,7 +27,7 @@ public class Service implements InterFace {
         }
     }
 
-    @Override
+    
     public void lihatBarang() {
     String sql = "select * from barang";
     StringBuilder data = new StringBuilder("=== Daftar Barang ===\n");
@@ -61,7 +60,7 @@ public class Service implements InterFace {
     }
 }
 
-    @Override
+    
     public void hapusBarang(String kode) {
         String sql = "delete from barang where kode = ?";
         try (Connection conn = Koneksi.getKoneksi();
@@ -81,7 +80,7 @@ public class Service implements InterFace {
         }
     }
 
-    @Override
+    
     public void editBarang(String kode, String namaBaru, int jumlahBaru, double hargaBaru) {
         String sql = "update barang set nama = ?, jumlah = ?, harga = ? where kode = ?";
         try (Connection conn = Koneksi.getKoneksi();

@@ -2,8 +2,8 @@ package com.oop;
 import javax.swing.*;
 
 
-public class MenuSwing extends JFrame implements Menuinterface {
-    private final InterFace service = new Service();
+public class MenuSwing extends JFrame {
+    private final Service service = new Service();
 
     public MenuSwing() {
         setTitle("Manajemen Barang");//judul pada jendela GUI.
@@ -67,17 +67,17 @@ public class MenuSwing extends JFrame implements Menuinterface {
         setJMenuBar(menuBar);
     }
 
-    @Override
+    
     public void tampilMenu() {
         setVisible(true); // tampilkan GUI bukan method buatan, tapi bawaan dari library Java (java.awt.Component).
     }
 
-    @Override
+    
     public void prosesPilihan(int pilihan) {
         // Tidak dipakai di GUI
     }
 
-    @Override
+    
     public void run() {
         tampilMenu();
     }
