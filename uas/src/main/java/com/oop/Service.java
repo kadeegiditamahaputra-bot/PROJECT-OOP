@@ -30,27 +30,36 @@ public class Service implements InterFace {
 
     @Override
     public void lihatBarang() {
-        String sql = "select * from barang";
-        StringBuilder data = new StringBuilder("=== Daftar Barang ===\n");
-        try (Connection conn = Koneksi.getKoneksi();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+    String sql = "select * from barang";
+    StringBuilder data = new StringBuilder("=== Daftar Barang ===\n");
+    try (Connection conn = Koneksi.getKoneksi();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
 
-            while (rs.next()) {
-                data.append("Kode   : ").append(rs.getString("kode")).append("\n");
-                data.append("Nama   : ").append(rs.getString("nama")).append("\n");
-                data.append("Jumlah : ").append(rs.getInt("jumlah")).append("\n");
-                data.append("Harga  : ").append(rs.getDouble("harga")).append("\n");
-                data.append("----------------------\n");
-            }
+        boolean adaData = false; // flag untuk cek isi
 
-            JOptionPane.showMessageDialog(null, data.toString(), "Data Barang", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Gagal menampilkan barang: " + e.getMessage(),
-                                          "Error", JOptionPane.ERROR_MESSAGE);
+        while (rs.next()) {
+            adaData = true;
+            data.append("Kode   : ").append(rs.getString("kode")).append("\n");
+            data.append("Nama   : ").append(rs.getString("nama")).append("\n");
+            data.append("Jumlah : ").append(rs.getInt("jumlah")).append("\n");
+            data.append("Harga  : ").append(rs.getDouble("harga")).append("\n");
+            data.append("----------------------\n");
         }
+
+        if (adaData) {
+            JOptionPane.showMessageDialog(null, data.toString(),
+                    "Data Barang", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Barang Kosong!",
+                    "Data Barang", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Gagal menampilkan barang: " + e.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
     }
+}
 
     @Override
     public void hapusBarang(String kode) {

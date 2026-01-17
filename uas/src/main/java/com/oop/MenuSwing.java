@@ -6,14 +6,14 @@ public class MenuSwing extends JFrame implements Menuinterface {
     private final InterFace service = new Service();
 
     public MenuSwing() {
-        setTitle("Menu Barang (GUI)");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Manajemen Barang");//judul pada jendela GUI.
+        setExtendedState(JFrame.MAXIMIZED_BOTH);//Size jendela GUI
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//tombol X kalau jendela ditutup, program langsung berhenti.
 
         // Buat menu bar
         JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("MENU");
-        menu.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, java.awt.Color.BLACK));
+        JMenu menu = new JMenu("MENU");//tombol MENU
+        menu.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, java.awt.Color.BLACK));//kayak cssnya
 
         // Input Barang
         JMenuItem inputItem = new JMenuItem("Input Barang");
@@ -49,6 +49,7 @@ public class MenuSwing extends JFrame implements Menuinterface {
         // Keluar
         JMenuItem keluarItem = new JMenuItem("Keluar");
         keluarItem.addActionListener(e -> System.exit(0));
+        
 
         // Tambahkan semua item ke menu
         menu.add(inputItem);
@@ -57,13 +58,18 @@ public class MenuSwing extends JFrame implements Menuinterface {
         menu.add(editItem);
         menu.add(keluarItem);
 
+        // Ubah border isi menu (dropdown)
+        menu.getPopupMenu().setBorder(
+        BorderFactory.createMatteBorder(1, 1, 1, 1, java.awt.Color.BLACK)
+        );
+
         menuBar.add(menu);
         setJMenuBar(menuBar);
     }
 
     @Override
     public void tampilMenu() {
-        setVisible(true); // tampilkan GUI
+        setVisible(true); // tampilkan GUI bukan method buatan, tapi bawaan dari library Java (java.awt.Component).
     }
 
     @Override
