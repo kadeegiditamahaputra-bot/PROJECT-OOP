@@ -69,7 +69,7 @@ public class MenuSwing extends JFrame {
 
     
     public void tampilMenu() {
-        setVisible(true); // tampilkan GUI, tapi bawaan dari library Java (java.awt.Component).
+        setVisible(true); // tampilkan GUI, bawaan dari library Java (java.awt.Component).
     }
 
     

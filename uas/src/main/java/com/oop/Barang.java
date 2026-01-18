@@ -49,9 +49,4 @@ public class Barang {
     public void setHarga(double harga) {
         this.harga = harga;
     }
-
-    // Method tambahan
-    public double hitungTotalHarga() {
-        return jumlah * harga;
-    }
 }
