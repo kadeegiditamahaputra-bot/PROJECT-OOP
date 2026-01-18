@@ -1,11 +1,11 @@
 package com.oop;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.ResultSet;//dipakai untuk menampung hasil query select dari database, lalu dibaca baris per baris.
+import java.sql.SQLException;//dipakai untuk menangani error
 import java.text.NumberFormat;
-import java.util.Locale;
-import javax.swing.JOptionPane;
+import java.util.Locale;//menentukan aturan format sesuai negara
+import javax.swing.JOptionPane;//dipakai untuk menampilkan pop‑up dialog ke user
 
 
 
@@ -34,15 +34,17 @@ public class Service {
     String sql = "select * from barang";
     StringBuilder data = new StringBuilder("=== Daftar Barang ===\n");
     try (Connection conn = Koneksi.getKoneksi();
-         PreparedStatement ps = conn.prepareStatement(sql);
-         ResultSet rs = ps.executeQuery()) {
+    PreparedStatement ps = conn.prepareStatement(sql);
+    ResultSet rs = ps.executeQuery()){//jalankan query dan simpan hasilnya di rs
 
-        boolean adaData = false; // flag untuk cek isi
+
+        boolean adaData = false; //untuk cek apakah ada data(awalan pake False dlu)
+        //NumberFormat untuk memformat angka sesuai locale Indonesia (pakai titik ribuan)
         NumberFormat nf = NumberFormat.getInstance(Locale.forLanguageTag("id-ID"));
 
-
+        //loop untuk membaca setiap baris hasil query
         while (rs.next()) {
-            adaData = true;
+            adaData = true;// kalau ada baris, berarti tabel tidak kosong
             data.append("Kode    : ").append(rs.getString("kode")).append("\n");
             data.append("Nama    : ").append(rs.getString("nama")).append("\n");
             data.append("Jumlah : ").append(nf.format(rs.getDouble("jumlah"))).append("\n");
@@ -62,7 +64,7 @@ public class Service {
         JOptionPane.showMessageDialog(null, "Gagal menampilkan barang: " + e.getMessage(),
                 "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
+    }
 
     
     public void hapusBarang(String kode) {
