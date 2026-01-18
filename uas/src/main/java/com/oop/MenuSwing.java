@@ -51,7 +51,7 @@ public class MenuSwing extends JFrame {
         keluarItem.addActionListener(e -> System.exit(0));
         
 
-        // Tambahkan semua item ke menu
+        // Menambahkan semua item ke menu
         menu.add(inputItem);
         menu.add(lihatItem);
         menu.add(hapusItem);
@@ -63,13 +63,13 @@ public class MenuSwing extends JFrame {
         BorderFactory.createMatteBorder(1, 1, 1, 1, java.awt.Color.BLACK)
         );
 
-        menuBar.add(menu);
-        setJMenuBar(menuBar);
+        menuBar.add(menu);//isi menu bar dengan menu
+        setJMenuBar(menuBar);//tampilkan menu bar di jendela.
     }
 
     
     public void tampilMenu() {
-        setVisible(true); // tampilkan GUI bukan method buatan, tapi bawaan dari library Java (java.awt.Component).
+        setVisible(true); // tampilkan GUI, tapi bawaan dari library Java (java.awt.Component).
     }
 
     

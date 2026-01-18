@@ -3,6 +3,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+
 import javax.swing.JOptionPane;
 
 
@@ -36,14 +40,16 @@ public class Service {
          ResultSet rs = ps.executeQuery()) {
 
         boolean adaData = false; // flag untuk cek isi
+        NumberFormat nf = NumberFormat.getInstance(Locale.forLanguageTag("id-ID"));
+
 
         while (rs.next()) {
             adaData = true;
-            data.append("Kode   : ").append(rs.getString("kode")).append("\n");
-            data.append("Nama   : ").append(rs.getString("nama")).append("\n");
-            data.append("Jumlah : ").append(rs.getInt("jumlah")).append("\n");
-            data.append("Harga  : ").append(rs.getDouble("harga")).append("\n");
-            data.append("----------------------\n");
+            data.append("Kode    : ").append(rs.getString("kode")).append("\n");
+            data.append("Nama    : ").append(rs.getString("nama")).append("\n");
+            data.append("Jumlah : ").append(nf.format(rs.getDouble("jumlah"))).append("\n");
+            data.append("Harga   : Rp ").append(nf.format(rs.getDouble("harga"))).append("\n");
+            data.append("--------------------------------\n");
         }
 
         if (adaData) {
