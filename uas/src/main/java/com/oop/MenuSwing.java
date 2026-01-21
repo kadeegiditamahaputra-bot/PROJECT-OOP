@@ -73,11 +73,6 @@ public class MenuSwing extends JFrame {
     }
 
     
-    public void prosesPilihan(int pilihan) {
-        // Tidak dipakai di GUI
-    }
-
-    
     public void run() {
         tampilMenu();
     }
