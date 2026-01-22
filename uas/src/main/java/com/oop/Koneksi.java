@@ -1,6 +1,6 @@
 package com.oop;
 import java.sql.Connection;
-import java.sql.DriverManager;//Dipakai untuk membuka koneksi ke database dengan cara memanggil driver yang sesuai (misalnya MySQL, PostgreSQL, dll)
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Koneksi {
@@ -9,7 +9,7 @@ public class Koneksi {
     private static final String PASSWORD = "300126";
     private static final String URL = "jdbc:mysql://localhost:3306/UAS_OOP";
 
-    // Method untuk mendapatkan koneksi
+    //untuk mendapatkan koneksi
     public static Connection getKoneksi() {
         try {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
